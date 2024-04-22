@@ -61,6 +61,19 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+		<!--        邮件相关-->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
+		<!--        引入Redis相关依赖，包括实现Redis缓存-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
