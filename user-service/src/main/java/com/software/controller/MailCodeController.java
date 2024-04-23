@@ -40,7 +40,7 @@ public class MailCodeController {
 
     @PostMapping("/checkCode")
     public Result checkCode(String mail,String code) {
-        if(mailCodeService.checkCode(mail,code)) return new Result(true,"验证码正确",null,200);
+        if(mailCodeService.checkCode(mail,code)) return new Result(true,"登录成功",null,200);
 
         return new Result(false,"验证码错误或已失效",null,400);
 
