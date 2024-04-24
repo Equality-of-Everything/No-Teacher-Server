@@ -2,6 +2,7 @@ package com.software.controller;
 
 import com.noteacher.result.Result;
 import com.software.service.LoginService;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,8 +28,9 @@ public class LoginController {
 
     @PostMapping("/login")
     public Result login(String email) {
-        loginService.login(email);
+        User user = loginService.login(email);
         Result result = mailCodeController.sendMailCode(email);
+        result.setData(user);
         return result;
     }
 

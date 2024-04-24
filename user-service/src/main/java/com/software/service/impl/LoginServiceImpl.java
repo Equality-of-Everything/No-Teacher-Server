@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Transactional
     @Override
-    public boolean login(String email) {
+    public User login(String email) {
         // 如何数据库没有这个数据，则先进行注册
         User user = userMapper.selectUserByEmail(email);
         if (user == null) {
@@ -37,7 +37,8 @@ public class LoginServiceImpl implements LoginService {
             newUser.setBirthdate(null);
             newUser.setLevel(null);
             userMapper.insert(newUser);
+            return newUser;
         }
-        return true;
+        return user;
     }
 }

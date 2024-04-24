@@ -1,5 +1,7 @@
 package com.software.service;
 
+import entity.User;
+
 /**
  * @Author : Zhang
  * @Date : Created in 2024/4/23 8:27
@@ -7,5 +9,5 @@ package com.software.service;
  */
 
 public interface LoginService {
-    boolean login(String email);
+    User login(String email);
 }

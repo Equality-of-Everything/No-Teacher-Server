@@ -2,8 +2,7 @@ package com.software.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import entity.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 /**
  * @Author : Zhang
@@ -13,6 +12,12 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
+    @Results(
+            @Result(column = "user_id",property = "userId")
+    )
     @Select("select * from user where email = #{email}")
     User selectUserByEmail(String email);
+
+    @Update("update user set avatar = #{avatar} where user_id = #{userId}")
+    Integer updateUserAvatar(String userId,String avatar);
 }

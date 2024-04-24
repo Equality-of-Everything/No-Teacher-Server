@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: commons-service
+alioss:
+  endpoint: https://oss-cn-beijing.aliyuncs.com
+  access-key-id: LTAI5tQYyUVYWuiZUiwra5d4
+  access-key-secret: 7RBZ4i2ZPkOFWkPLO8pb3lKC94dcai
+  bucket-name: qiwusky

@@ -1,20 +1,17 @@
-package com.software;
+package com.noteacher;
 
-import com.software.client.UploadFileClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication
+@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 @EnableConfigurationProperties
-@EnableCaching
-@EnableFeignClients(clients = UploadFileClient.class)
-public class UserServiceApplication {
+public class CommonsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserServiceApplication.class, args);
+		SpringApplication.run(CommonsApplication.class, args);
 	}
 
 }
