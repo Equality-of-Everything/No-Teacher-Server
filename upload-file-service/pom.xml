@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.no-teacher</groupId>
-    <artifactId>commons</artifactId>
+    <artifactId>upload-file-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
 

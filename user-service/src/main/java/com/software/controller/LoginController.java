@@ -4,10 +4,7 @@ import com.noteacher.result.Result;
 import com.software.service.LoginService;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -27,7 +24,7 @@ public class LoginController {
     private MailCodeController mailCodeController;
 
     @PostMapping("/login")
-    public Result login(String email) {
+    public Result login(@RequestParam String email) {
         User user = loginService.login(email);
         Result result = mailCodeController.sendMailCode(email);
         result.setData(user);
@@ -35,7 +32,7 @@ public class LoginController {
     }
 
     @PostMapping("/checkLogin")
-    public Result checkLogin(String email, String code) {
+    public Result checkLogin(@RequestParam String email,@RequestParam String code) {
         return mailCodeController.checkCode(email, code);
     }
 }

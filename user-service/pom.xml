@@ -56,7 +56,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.no-teacher</groupId>
+			<groupId>com.noteacher</groupId>
 			<artifactId>commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
