@@ -1,7 +1,6 @@
 package com.software.controller;
 
-import com.noteacher.controller.UploadFileController;
-import com.noteacher.result.Result;
+import com.noteacher.entity.Result;
 import com.software.client.UploadFileClient;
 import com.software.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -27,6 +27,6 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public List<WordDetail> getLimitWord(int currentPage) {
-        return wordMapper.getLimitWord(currentPage);
+        return wordMapper.getLimitWord(currentPage*8);
     }
 }

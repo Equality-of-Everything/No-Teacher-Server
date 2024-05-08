@@ -1,7 +1,7 @@
 package com.software.controller;
 
 import cn.hutool.extra.mail.MailUtil;
-import com.noteacher.result.Result;
+import com.noteacher.entity.Result;
 import com.software.service.MailCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
