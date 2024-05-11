@@ -16,4 +16,5 @@ import org.springframework.web.multipart.MultipartFile;
 public interface UploadFileClient {
     @PostMapping("/upload/image")
     Result uploadFile(@RequestParam MultipartFile file);
+
 }

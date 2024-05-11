@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.UUID;
+
 /**
  * @Author : Zhang
  * @Date : Created in 2024/4/24 9:13
@@ -32,4 +34,20 @@ public class UserInfoController {
         boolean flag = userInfoService.updateUserAvatar(userId, avatar) > 0;
         return new Result(flag, flag ? "更新头像成功" : "更新头像失败", null);
     }
+
+    @PostMapping("/addUser")
+    public Result addUserInfo(@RequestParam String userId,
+                            @RequestParam String userName, @RequestParam String avatar,
+                              @RequestParam String birthdate, @RequestParam String sex) {
+        boolean flag = userInfoService.UpdateUserInfo(userId, userName, avatar, birthdate, sex) > 0;
+        return new Result(flag, flag ? "更新用户信息成功" : "更新用户信息失败", null);
+    }
+
+
+
+
 }
+
+
+
+

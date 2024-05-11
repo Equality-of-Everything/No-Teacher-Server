@@ -8,4 +8,12 @@ package com.software.service;
 
 public interface UserInfoService {
     Integer updateUserAvatar(String userId,String avatar);
+
+    Integer UpdateUserInfo(String userId, String userName, String avatar, String birthdate, String sex);
+
 }
+
+
+
+
+

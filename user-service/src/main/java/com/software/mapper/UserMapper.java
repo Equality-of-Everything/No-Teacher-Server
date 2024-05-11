@@ -20,4 +20,8 @@ public interface UserMapper extends BaseMapper<User> {
 
     @Update("update user set avatar = #{avatar} where user_id = #{userId}")
     Integer updateUserAvatar(String userId,String avatar);
+
+    @Update("update user set username = #{userName}, avatar = #{avatar}, birthdate = #{birthdate}, sex = #{sex} where user_id = #{userId} ")
+    Integer UpdateUserInfo(String userId, String userName, String avatar, String birthdate, String sex);
+
 }

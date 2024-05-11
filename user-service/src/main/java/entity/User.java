@@ -26,4 +26,5 @@ public class User {
     private String birthdate;
     // 英文水平
     private String level;
+    private String sex;
 }

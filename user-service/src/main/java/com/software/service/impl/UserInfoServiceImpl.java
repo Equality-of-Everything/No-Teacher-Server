@@ -22,4 +22,11 @@ public class UserInfoServiceImpl implements UserInfoService {
         Integer res = userMapper.updateUserAvatar(userId, avatar);
         return res;
     }
+
+    @Override
+    public Integer UpdateUserInfo(String userId, String userName, String avatar, String birthdate, String sex) {
+        Integer res = userMapper.UpdateUserInfo(userId, userName, avatar, birthdate, sex);
+        return res;
+    }
+
 }
