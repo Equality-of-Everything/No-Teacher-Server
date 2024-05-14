@@ -20,7 +20,7 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleMapper articleMapper;
     @Override
     public List<Article> getArticlesByLexile(int lexile,int currentPage) {
-        List<Article> res = articleMapper.getArticleByLexile(lexile,currentPage*6);
+        List<Article> res = articleMapper.getArticleByLexile(lexile,currentPage*5);
         return res;
     }
 
