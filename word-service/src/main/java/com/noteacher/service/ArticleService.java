@@ -16,4 +16,6 @@ public interface ArticleService {
     Integer getArticleNum();
 
     List<Article> getAllArticle();
+
+    Integer getArticleByLexileNum(int lexile);
 }

@@ -33,4 +33,9 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> getAllArticle() {
         return articleMapper.selectList(null);
     }
+
+    @Override
+    public Integer getArticleByLexileNum(int lexile) {
+        return articleMapper.getArticleNumByLexile(lexile);
+    }
 }

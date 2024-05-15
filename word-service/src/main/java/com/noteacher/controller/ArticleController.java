@@ -54,4 +54,11 @@ public class ArticleController {
         if(res==null) return new Result(false, "发生未知错误", null);
         return new Result(true, "获取成功", res);
     }
+
+    @GetMapping("/getArticleByLexileNum/{lexile}")
+    public Result getArticleByLexileNum(@PathVariable int lexile) {
+        Integer res = articleService.getArticleByLexileNum(lexile);
+        if(res==null) return new Result(false, "发生未知错误", null);
+        return new Result(true, "获取成功", res);
+    }
 }

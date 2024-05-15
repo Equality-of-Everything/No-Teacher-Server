@@ -16,8 +16,11 @@ import java.util.List;
 @Mapper
 public interface ArticleMapper extends BaseMapper<Article> {
     @Select("select * from articles where lexile = #{lexile} limit #{currentPage},5")
-    List<Article> getArticleByLexile(int lexile,int currentPage);
+    List<Article> getArticleByLexile(int lexile, int currentPage);
 
     @Select("select count(*) from articles")
     Integer getArticleNum();
+
+    @Select("select count(*) from articles where lexile=#{lexile}")
+    Integer getArticleNumByLexile(int lexile);
 }
