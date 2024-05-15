@@ -2,6 +2,7 @@ package com.software.controller;
 
 import com.noteacher.entity.Result;
 import com.software.client.UploadFileClient;
+import com.software.mapper.UserMapper;
 import com.software.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,9 @@ public class UserInfoController {
     @Autowired
     private UploadFileClient uploadFileClient;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @PostMapping("/updateAvatar")
     public Result updateAvatar(String userId, @RequestParam MultipartFile file) {
         Result result = uploadFileClient.uploadFile(file);
@@ -37,15 +41,18 @@ public class UserInfoController {
 
     @PostMapping("/addUser")
     public Result addUserInfo(@RequestParam String userId,
-                            @RequestParam String userName, @RequestParam String avatar,
+                              @RequestParam String userName, @RequestParam String avatar,
                               @RequestParam String birthdate, @RequestParam String sex) {
         boolean flag = userInfoService.UpdateUserInfo(userId, userName, avatar, birthdate, sex) > 0;
         return new Result(flag, flag ? "更新用户信息成功" : "更新用户信息失败", null);
     }
 
 
-
-
+    @PostMapping("/updateLexile")
+    public Result updateLexile(String userId, int lexile) {
+        boolean flag = userMapper.updateUserLexile(userId, lexile) > 0;
+        return new Result(flag, flag ? "更新Lexile成功" : "更新Lexile失败", null);
+    }
 }
 
 

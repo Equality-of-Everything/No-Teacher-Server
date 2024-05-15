@@ -18,10 +18,14 @@ public interface UserLevelMapper extends BaseMapper<UserLevel> {
 
     @Results(
             {@Result(column = "user_id", property = "userId"),
-            @Result(column = "know_word_id", property = "knowWordId"),
-            @Result(column = "unknow_word_id", property = "unknowWordId")}
+                    @Result(column = "know_word_id", property = "knowWordId"),
+                    @Result(column = "unknow_word_id", property = "unknowWordId")}
     )
     @Select("select * from user_level where user_id = #{userId}")
     UserLevel getUserLevelByUserId(String userId);
+
+
+    @Select("select know_word_id from user_level where user_id = #{userId}")
+    String getKnowWordIdByUserId(String userId);
 
 }

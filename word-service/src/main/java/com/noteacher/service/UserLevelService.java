@@ -12,4 +12,6 @@ public interface UserLevelService {
     Integer insertUserLevel(String userId,String unknowWordId,String knowWordId);
 
     UserLevel getUserLevelByUserId(String userId);
+
+    Integer getLexileByUserId(String userId);
 }
