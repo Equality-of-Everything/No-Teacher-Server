@@ -48,6 +48,7 @@ public class ArticleController {
     }
 
 
+
     @GetMapping("/getAllArticles")
     public Result getAllArticle() {
         List<Article> res = articleService.getAllArticle();
@@ -56,7 +57,7 @@ public class ArticleController {
     }
 
     @GetMapping("/getArticleByLexileNum/{lexile}")
-    public Result getArticleByLexileNum(@PathVariable int lexile) {
+    public Result getArticleByLexileNum(@PathVariable Integer lexile) {
         Integer res = articleService.getArticleByLexileNum(lexile);
         if(res==null) return new Result(false, "发生未知错误", null);
         return new Result(true, "获取成功", res);

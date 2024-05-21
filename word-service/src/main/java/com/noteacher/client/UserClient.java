@@ -14,5 +14,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient("user-service")
 public interface UserClient {
     @PostMapping("/userInfo/updateLexile")
-    Result updateLexile(@RequestParam String userId,@RequestParam int lexile);
+    Result updateLexile(@RequestParam String userId,@RequestParam String lexile);
 }

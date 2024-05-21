@@ -47,7 +47,7 @@ public class UserLevelServiceImpl implements UserLevelService {
         userLevel.setKnowWordId(knowWordId);
         Integer res = userLevelMapper.insert(userLevel);
         Integer lexile = getLexileByUserId(userId);
-        Result result = userClient.updateLexile(userId, lexile);
+        Result result = userClient.updateLexile(userId, lexile+"");
         return res;
     }
 

@@ -41,16 +41,19 @@ public class UserInfoController {
 
     @PostMapping("/addUser")
     public Result addUserInfo(@RequestParam String userId,
-                              @RequestParam String userName, @RequestParam String avatar,
+                              @RequestParam String userName, @RequestParam MultipartFile file,
                               @RequestParam String birthdate, @RequestParam String sex) {
+        Result result = uploadFileClient.uploadFile(file);
+        String avatar = (String) result.getData();
         boolean flag = userInfoService.UpdateUserInfo(userId, userName, avatar, birthdate, sex) > 0;
         return new Result(flag, flag ? "更新用户信息成功" : "更新用户信息失败", null);
     }
 
 
     @PostMapping("/updateLexile")
-    public Result updateLexile(String userId, int lexile) {
-        boolean flag = userMapper.updateUserLexile(userId, lexile) > 0;
+    public Result updateLexile(@RequestParam String userId,@RequestParam String lexile) {
+        Integer lexile1 = Integer.parseInt(lexile);
+        boolean flag = userMapper.updateUserLexile(userId, lexile1) > 0;
         return new Result(flag, flag ? "更新Lexile成功" : "更新Lexile失败", null);
     }
 }
