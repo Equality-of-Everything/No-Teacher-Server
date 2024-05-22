@@ -3,6 +3,7 @@ package com.software.service.impl;
 import cn.hutool.system.UserInfo;
 import com.software.mapper.UserMapper;
 import com.software.service.UserInfoService;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     public Integer UpdateUserInfo(String userId, String userName, String avatar, String birthdate, String sex) {
         Integer res = userMapper.UpdateUserInfo(userId, userName, avatar, birthdate, sex);
         return res;
+    }
+
+    @Override
+    public User getUserByUserId(String userId) {
+        return userMapper.selectUserById(userId);
     }
 
 }

@@ -1,9 +1,7 @@
 server:
   port: 8081
 
-spring:
-  application:
-    name: upload-file-service
+
 alioss:
   endpoint: https://oss-cn-beijing.aliyuncs.com
   access-key-id: LTAI5tQYyUVYWuiZUiwra5d4

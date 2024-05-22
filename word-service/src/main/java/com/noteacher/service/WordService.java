@@ -14,4 +14,7 @@ public interface WordService {
     Integer getWordNum();
 
     List<WordDetail> getLimitWord(int currentPage);
+
+    // 根据未知单词去推荐
+    List<WordDetail> wordRecommend(String userId,int currentPage);
 }

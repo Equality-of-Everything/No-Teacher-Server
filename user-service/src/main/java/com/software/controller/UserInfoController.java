@@ -4,11 +4,9 @@ import com.noteacher.entity.Result;
 import com.software.client.UploadFileClient;
 import com.software.mapper.UserMapper;
 import com.software.service.UserInfoService;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
@@ -31,22 +29,22 @@ public class UserInfoController {
     @Autowired
     private UserMapper userMapper;
 
-    @PostMapping("/updateAvatar")
-    public Result updateAvatar(String userId, @RequestParam MultipartFile file) {
+    @PostMapping("/updateAvatar/{userId}")
+    public Result updateAvatar(@PathVariable String userId, @RequestParam MultipartFile file) {
+        System.out.println(file.getSize());
         Result result = uploadFileClient.uploadFile(file);
         String avatar = (String) result.getData();
         boolean flag = userInfoService.updateUserAvatar(userId, avatar) > 0;
-        return new Result(flag, flag ? "更新头像成功" : "更新头像失败", null);
+        return new Result(flag, flag ? "更新头像成功" : "更新头像失败", avatar);
     }
 
     @PostMapping("/addUser")
     public Result addUserInfo(@RequestParam String userId,
-                              @RequestParam String userName, @RequestParam MultipartFile file,
+                              @RequestParam String userName, @RequestParam String avatar,
                               @RequestParam String birthdate, @RequestParam String sex) {
-        Result result = uploadFileClient.uploadFile(file);
-        String avatar = (String) result.getData();
         boolean flag = userInfoService.UpdateUserInfo(userId, userName, avatar, birthdate, sex) > 0;
-        return new Result(flag, flag ? "更新用户信息成功" : "更新用户信息失败", null);
+        User user = userInfoService.getUserByUserId(userId);
+        return new Result(flag, flag ? "更新用户信息成功" : "更新用户信息失败", user);
     }
 
 

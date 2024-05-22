@@ -28,4 +28,6 @@ public interface UserLevelMapper extends BaseMapper<UserLevel> {
     @Select("select know_word_id from user_level where user_id = #{userId}")
     String getKnowWordIdByUserId(String userId);
 
+    @Select("select unknow_word_id from user_level where user_id = #{userId}")
+    String getUnknowWordIdByUserId(String userId);
 }

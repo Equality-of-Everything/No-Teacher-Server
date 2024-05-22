@@ -24,7 +24,7 @@ public class UploadFileController {
     @Autowired
     private AliOssUtil aliOssUtil;
     @PostMapping("/image")
-    public Result uploadFile(@RequestParam MultipartFile file) {
+    public Result uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             if (!aliOssUtil.verifyImageSzie(file.getSize())) {
                 return new Result(false, "文件大小超过限制", null);

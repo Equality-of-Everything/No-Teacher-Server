@@ -2,8 +2,10 @@ package com.software.client;
 
 import com.noteacher.entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -12,9 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
  * @Decription : 用于远程调用文件上传
  */
 
-@FeignClient("commons-service")
+@FeignClient("upload-file-service")
 public interface UploadFileClient {
-    @PostMapping("/upload/image")
-    Result uploadFile(@RequestParam MultipartFile file);
+    @PostMapping(value = "/upload/image",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    Result uploadFile(@RequestPart MultipartFile file);
 
 }
