@@ -23,7 +23,7 @@ public class WordRecommendController {
     @Autowired
     private WordService wordService;
 
-    @GetMapping("/gerWordRec/{userId}/{currentPage}")
+    @GetMapping("/getWordRec/{userId}/{currentPage}")
     public Result getWordRec(@PathVariable String userId, @PathVariable int currentPage) {
         List<WordDetail> res = wordService.wordRecommend(userId, currentPage);
         if(res==null) return new Result(false,"推荐单词为空",null);

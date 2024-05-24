@@ -44,6 +44,7 @@ public class WordServiceImpl implements WordService {
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Integer>>() {}.getType();
         List list = gson.fromJson(res, listType);
+        if(list==null) return null;
         List<WordDetail> resWord = wordMapper.wordRec(list, currentPage * 4);
         return resWord;
     }
