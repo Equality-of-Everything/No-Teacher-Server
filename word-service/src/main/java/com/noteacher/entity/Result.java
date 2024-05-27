@@ -26,6 +26,14 @@ public class Result<T> implements Serializable {
         this.data = data;
     }
 
+    public Result(boolean flag,int code, String msg, T data){
+        this.flag = flag;
+        this.msg = msg;
+        this.data = data;
+        this.code = code;
+    }
+
+
     public Result() {
 
     }
