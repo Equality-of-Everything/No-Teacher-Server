@@ -12,4 +12,6 @@ public interface ReadLogService {
     Integer addReadLog(ReadLog readLog);
 
     Long getTodayReadDurationByUserId(String userId);
+
+    Integer getTodayWOrdNumByUserId(String userId);
 }

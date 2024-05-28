@@ -30,9 +30,26 @@ public class ReadLogController {
         return new Result(true, 200, "插入成功", readLog);
     }
 
+    /**
+     * 获取今日的阅读时长
+     * @param userId
+     * @return
+     */
     @GetMapping("/{userId}")
     public Result getTodayReadDurationByUserId(@PathVariable String userId) {
         Long res = readLogService.getTodayReadDurationByUserId(userId);
+        if(res == null) return new Result(false, 500, "查询失败或该用户未有阅读记录", null);
+        return new Result(true, 200, "查询成功", res);
+    }
+
+    /**
+     * 获取总单词数目
+     * @param userId
+     * @return
+     */
+    @GetMapping("/totalWord/{userId}")
+    public Result getTotalWordNum(@PathVariable String userId) {
+        Integer res = readLogService.getTodayWOrdNumByUserId(userId);
         if(res == null) return new Result(false, 500, "查询失败或该用户未有阅读记录", null);
         return new Result(true, 200, "查询成功", res);
     }
