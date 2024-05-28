@@ -33,4 +33,6 @@ public class ReadLog {
     private long readDuration;
     @TableField("articleId")
     private int articleId;
+    @TableField("readWordNum")
+    private int readWordNum;
 }

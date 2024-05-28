@@ -18,4 +18,9 @@ public interface ReadLogMapper extends BaseMapper<ReadLog> {
             "FROM ReadLog\n" +
             "WHERE DATE(startTime) = CURDATE() and userId = #{userId};\n")
     Long getTodayReadDuration(String userId);
+
+    @Select("SELECT SUM(readWordNum) AS totalReadDuration\n" +
+            "FROM ReadLog\n" +
+            "WHERE DATE(startTime) = CURDATE() and userId = #{userId};\n")
+    Integer getTodayReadArticleWordNumByUserId(String userId);
 }

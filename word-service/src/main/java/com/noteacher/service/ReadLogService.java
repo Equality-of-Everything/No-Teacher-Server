@@ -13,5 +13,7 @@ public interface ReadLogService {
 
     Long getTodayReadDurationByUserId(String userId);
 
-    Integer getTodayWOrdNumByUserId(String userId);
+    Integer getTotalWordNumByUserId(String userId);
+
+    Integer getTodayReadArticleWordNumByUserId(String userId);
 }

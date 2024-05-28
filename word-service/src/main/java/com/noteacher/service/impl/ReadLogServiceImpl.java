@@ -39,12 +39,17 @@ public class ReadLogServiceImpl implements ReadLogService {
     }
 
     @Override
-    public Integer getTodayWOrdNumByUserId(String userId) {
+    public Integer getTotalWordNumByUserId(String userId) {
         String res = userLevelMapper.getKnowWordIdByUserId(userId);
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Integer>>() {}.getType();
         List list = gson.fromJson(res, listType);
         Integer num = list.size();
         return num;
+    }
+
+    @Override
+    public Integer getTodayReadArticleWordNumByUserId(String userId) {
+        return readLogMapper.getTodayReadArticleWordNumByUserId(userId);
     }
 }

@@ -49,7 +49,19 @@ public class ReadLogController {
      */
     @GetMapping("/totalWord/{userId}")
     public Result getTotalWordNum(@PathVariable String userId) {
-        Integer res = readLogService.getTodayWOrdNumByUserId(userId);
+        Integer res = readLogService.getTotalWordNumByUserId(userId);
+        if(res == null) return new Result(false, 500, "查询失败或该用户未有阅读记录", null);
+        return new Result(true, 200, "查询成功", res);
+    }
+
+    /**
+     * 获取文章中单词的认识数
+     * @param userId
+     * @return
+     */
+    @GetMapping("/wordNum/{userId}")
+    public Result getTodayReadWordNumByuserId(@PathVariable String userId) {
+        Integer res = readLogService.getTodayReadArticleWordNumByUserId(userId);
         if(res == null) return new Result(false, 500, "查询失败或该用户未有阅读记录", null);
         return new Result(true, 200, "查询成功", res);
     }
