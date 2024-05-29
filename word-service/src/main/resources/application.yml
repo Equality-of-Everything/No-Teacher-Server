@@ -26,3 +26,16 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
+feign:
+  httpclient:
+    enabled: true # 支持HttpClient的开关
+    max-connections: 200 # 最佳连接数
+    max-connections-per-route: 50 # 单个路径的最大连接数
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 10000
+
+
+

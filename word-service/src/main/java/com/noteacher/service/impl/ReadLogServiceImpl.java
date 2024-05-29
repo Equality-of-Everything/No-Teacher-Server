@@ -44,6 +44,7 @@ public class ReadLogServiceImpl implements ReadLogService {
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Integer>>() {}.getType();
         List list = gson.fromJson(res, listType);
+        if(list==null) return 0;
         Integer num = list.size();
         return num;
     }

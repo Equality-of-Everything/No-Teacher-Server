@@ -8,6 +8,7 @@ import com.noteacher.entity.ReadLog;
  * @Decription :
  */
 
+
 public interface ReadLogService {
     Integer addReadLog(ReadLog readLog);
 
