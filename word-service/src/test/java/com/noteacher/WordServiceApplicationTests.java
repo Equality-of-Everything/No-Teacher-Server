@@ -31,29 +31,11 @@ class WordServiceApplicationTests {
 
     @Autowired
     private WordMapper wordMapper;
-
-//    @Test
-//    void userLevelService_getLexileByUserId() {
-//        // 创建Gson对象
-//        Gson gson = new GsonBuilder().create();
-//
-//        // 定义集合的类型
-//        Type listType = new TypeToken<List<Integer>>() {}.getType();
-//        List list = gson.fromJson(userLevelMapper.getKnowWordIdByUserId("02e37658-1604-4292-800d-d3f2a15039a3"), listType);
-//        System.out.println(list.size()/96D*100);
-//
-//    }
-
     @Test
     void articleServiceTest() {
-//        String res = userLevelMapper.getUnknowWordIdByUserId("e9707d25-e87a-4e8d-9dcb-3e99d0e491f7");
-//        Gson gson = new Gson();
-//        Type listType = new TypeToken<List<Integer>>() {}.getType();
-//        List list = gson.fromJson(res, listType);
-//        List<WordDetail> wordDetails = wordMapper.wordRec(list, 0*4);
-//        System.out.println(wordDetails);
-
-        System.out.println(new Timestamp(System.currentTimeMillis()).toString());
+        Integer a = 127;
+        Integer b =  127;
+        System.out.println(a==b);
     }
 
 
